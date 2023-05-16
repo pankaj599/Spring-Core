@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean class="com.spring.autowire.usingxml.Address" name="address">
+		<property name="area" value="bhuwana" />
+		<property name="city" value="udaipur" />
+	</bean>
+
+	<!-- while using the ""byName"" the name of the variable (mention in the 
+		file) and in the bean should be same [here in the employee class we have 
+		a variable name address and in the bean too we kept the same name as address] -->
+	<bean class="com.spring.autowire.usingxml.Employee" name="emp1"
+		autowire="byName" />
+
+	<!-- byType here it looks for the datatype of the variable -->
+	<bean class="com.spring.autowire.usingxml.Employee" name="emp2"
+		autowire="byType" />
+	
+	<!-- constructor here it looks for the constructor in the file -->
+	<bean class="com.spring.autowire.usingxml.Employee" name="emp3"
+		autowire="constructor" />
+</beans>
